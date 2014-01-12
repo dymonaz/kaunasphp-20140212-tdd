@@ -12,7 +12,7 @@ Slides/code for JavaScript Latvia meetup on 2014-01-14
 * `grunt watch` and/or `npm test`
 
 ## Todo
-* Server: accept and save POST data
+* Don't kill server on faulty results.js
 * Combine resultViewer(.test).js from POSTed files
 * Combine results(.test).js for the server
 * Do something about print view

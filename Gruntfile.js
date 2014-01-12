@@ -9,7 +9,7 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		clean: {
 			"build": {
-				src: ["build/**", "!build/.gitignore"],
+				src: ["build/**", "!build/**/.gitignore"],
 				filter: 'isFile'
 			},
 			"browser": ["build/clientApp.js", "build/clientApp.min.js", "build/browser.results.html"],
@@ -95,20 +95,12 @@ module.exports = function (grunt) {
 
 		var off = function (text) {
 			fs.writeFileSync(fn, "<pre>" + converter.toHtml(text) + "</pre>");
-			grunt.event.off("buster:success", onSuccess);
-			grunt.event.off("buster:failure", onFailure);
+			grunt.event.off("buster:success", off);
+			grunt.event.off("buster:failure", off);
 		};
 
-		var onSuccess = function (text) {
-			off(text);
-		};
-
-		var onFailure = function (text) {
-			off(text);
-		};
-
-		grunt.event.on('buster:success', onSuccess);
-		grunt.event.on('buster:failure', onFailure);
+		grunt.event.on('buster:success', off);
+		grunt.event.on('buster:failure', off);
 		grunt.task.run("buster:" + which);
 
 	});
