@@ -44,8 +44,236 @@
 					</p>
 				</section>
 
+				<section>
+					<section>
+						<h2>Why buster?</h2>
+						<ul>
+							<li>Works for node and browser</li>
+							<li>Built-in server for browser tests (no fixture HTML boilerplate)</li>
+							<li>Built-in sinon.js</li>
+							<li>Super flexible</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Why not buster?</h2>
+						<ul>
+							<li>0.x</li>
+							<li>Development is kind of slow <div><small>(yet stable enough)</small></div></li>
+							<li>AMD is tricky</li>
+							<li>Super flexible</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Alternatives</h2>
+						<p>Modern: intern, karma, mocha</p>
+						<p><del>Old</del> Battle-tested: QUnit, jasmine, JsTestDriver</p>
+						<p>See: <a href="https://github.com/theintern/intern#comparison">https://github.com/theintern/intern#comparison</a></p>
+					</section>
+				</section>
 
+				<section>
+					<section>
+						<h2>Getting started</h2>
+						<code>npm install buster</code>
+					</section>
+					<section>
+						<h2>Sample <code>buster.js</code></h2>
+						<pre>@todo</pre>
+						<aside class="notes">5 mins</aside>
+					</section>
+					<section>
+						<h2>Sample <code>helpers.js</code></h2>
+						<pre>@todo</pre>
+					</section>
+					<section>
+						<h2>Run tests</h2>
+						<ol>
+							<li><code>./node_modules/.bin/buster-server</code></li>
+							<li>Point browser to localhost:1111</li>
+							<li><code>./node_modules/.bin/buster-test</code></li>
+						</ol>
+						<p><small>Or install globally, but that's a bad idea</small></p>
+						<hr/>
+						<ol>
+							<li><code>require('buster-node')</code></li>
+							<li><code>node myTests.js</code></li>
+						</ol>
+						<hr/>
+						<ol start="0">
+							<li><code>npm install grunt-buster<br/>npm install -g grunt-cli<br/>brew install phantomjs</code></li>
+							<li><code>grunt buster</code></li>
+						</ol>
+					</section>
+					<section>
+						<h2>Sample <code>Gruntfile.js</code></h2>
+						<pre>@todo</pre>
+					</section>
+					<section>
+						<h2>Debugging</h2>
+						<ul>
+							<li><code>console.log()</code></li>
+							<li>Browser: Chrome Dev Tools, Firebug, whatever</li>
+							<li>node.js: WebStorm/PhpStorm/IntelliJ, <code>node-inspector</code></li>
+						</ul>
+					</section>
+				</section>
 
+				<section>
+					<h2>Demo time!</h2>
+					<ul>
+						<li>Also using: browserify, grunt-contrib-watch and grunt-express</li>
+						<li>Code which POSTs from textareas already present</li>
+						<li>Let's build a test result viewer for this slide-deck</li>
+						<li>Disclaimer: do a better job for production!</li>
+					</ul>
+					<aside class="notes">11 mins</aside>
+				</section>
+
+				<section>
+					<section>
+						<h2><code>init(el)</code></h2>
+						<ul>
+							<li>Should render status <code>div</code></li>
+							<li>Should render results <code>div</code></li>
+							<li><code>div#status onClick</code><ul>
+								<li>should display results</li>
+								<li>should hide results</li>
+							</ul></li>
+							<li><code>button.runTests onClick</code><ul>
+								<li>should <code>loadResults()</code></li>
+							</ul></li>
+						</ul>
+					</section>
+					<section>
+						<h2>should render status div</h2>
+						<pre>@todo</pre>
+					</section>
+					<section>
+						<h2>should render results div</h2>
+						<p>@todo: introduce BDD style</p>
+					</section>
+					<section>
+						<h2>div#status onClick should display results</h2>
+						<p>@todo: introduce setUp</p>
+					</section>
+					<section>
+						<h2>div#status onClick should hide results</h2>
+						<p>@todo: introduce HTML doc block</p>
+					</section>
+					<section>
+						<h2>F5!</h2>
+						<aside class="notes">19 mins</aside>
+					</section>
+					<section>
+						<h2>button.runTests onClick should loadResults()</h2>
+						<p>@todo: introduce stub</p>
+					</section>
+					<section>
+						<h2>Test doubles</h2>
+						<p>Use for: isolation, forcing a code path, avoiding external calls, forcing errors</p>
+						<ul>
+							<li>sinon.spy: wraps around a method and records calls</li>
+							<li>sinon.stub: replaces a method</li>
+							<li>sinon.mock: replaces methods, built-in expectations</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2><code>loadResults()</code></h2>
+						<ul>
+							<li>Should change status to <code>.loading</code></li>
+							<li>Should set results to "Waiting"</li>
+							<li>Should make XHR</li>
+							<li>Should call <code>onResultsReceived()</code></li>
+						</ul>
+						<aside class="notes">23 mins</aside>
+					</section>
+					<section>
+						<h2>Should make XHR</h2>
+						<pre>@todo: introduce fakeXhr</pre>
+					</section>
+					<section>
+						<h2>Should call <code>onResultsReceived()</code></h2>
+						<pre>@todo: sync way</pre>
+					</section>
+					<section>
+						<h2>Should call <code>onResultsReceived()</code></h2>
+						<pre>@todo: introduce server</pre>
+					</section>
+					<section>
+						<h2>Should call <code>onResultsReceived()</code></h2>
+						<pre>@todo: make async</pre>
+					</section>
+					<section>
+						<h2>Should call <code>onResultsReceived()</code></h2>
+						<pre>@todo: use a promise</pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2><code>onResultsReceived()</code></h2>
+						<ul>
+							<li>when OK:<ul>
+								<li>should change status to <code>.success</code></li>
+								<li>should add HTML to results</li>
+							</ul></li>
+							<li>when failed:<ul>
+								<li>should change status to <code>.fail</code></li>
+							</ul></li>
+							<li>when unknown:<ul>
+								<li>should change status to <code>.loading</code></li>
+								<li>should set results to "retrying"</li>
+								<li>should retry in 100ms</li>
+							</ul></li>
+						</ul>
+						<aside class="notes">30 mins</aside>
+					</section>
+					<section>
+						<h2>Focus rocket</h2>
+						<pre>@todo</pre>
+					</section>
+					<section>
+						<h2>Deferred tests</h2>
+						<pre>@todo</pre>
+					</section>
+					<section>
+						<h2>Should retry in 100ms</h2>
+						<pre>@todo</pre>
+					</section>
+					<section>
+						<h2>F5!</h2>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Server side: <code>/results</code></h2>
+						<ul>
+							<li>Should serve results.html</li>
+							<li>Should 404 when results in progress</li>
+						</ul>
+						<p>@todo: switch reporter to HTML</p>
+						<aside class="notes">35 mins</aside>
+					</section>
+					<section>
+						<h2>Should serve results.html</h2>
+						<pre>@todo</pre>
+					</section>
+					<section>
+						<h2>Shold 404 when results in progress</h2>
+						<pre>@todo</pre>
+					</section>
+				</section>
+
+				<section>
+					<p>Slides: <a href="http://dominykas.net/20">http://dominykas.net/20</a></p>
+					<p>Code: <a href="http://dominykas.net/21">http://dominykas.net/21</a></p>
+					<p><small><a href="https://twitter.com/dymonaz">@dymonaz</a></small></p>
+					<p>;</p>
+				</section>
 
 			</div>
 
