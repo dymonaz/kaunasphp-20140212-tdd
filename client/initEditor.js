@@ -4,24 +4,60 @@ module.exports = function (ta) {
 	if (!ta.value) ta.value = '\n';
 
 	var container = ta.parentNode;
-	var cm = CodeMirror.fromTextArea(ta,
+	var fileName = ta.dataset.file;
+
+	var saveFile = function () {
+		cm.save();
+		xhr({
+				method: "POST",
+				uri: "/save",
+				json: {
+					text: ta.value,
+					file: fileName
+				}
+			},
+			function (err, res, body) {
+				if (err) console.error(err);
+				console.log("Received:", body);
+			});
+	};
+
+	var switchInstances = function ()
+	{
+		var editors = container.parentNode;
+		if (editors) {
+			var otherEditorClass = container.classList.contains("code-test") ? "code-impl" : "code-test";
+			var otherTA = editors.querySelector("."+otherEditorClass+" textarea");
+			if (otherTA && otherTA.codemirror && otherTA.codemirror.focus) {
+				otherTA.codemirror.focus();
+			}
+		}
+		console.log(editors);
+	};
+
+	var cm = ta.codemirror = CodeMirror.fromTextArea(ta,
 		{
 			lineNumbers: true,
 			autofocus: false,
 			matchBrackets: true,
 			readOnly: container.classList.contains("code-sample") ? "nocursor" : false,
-			mode: "text/javascript"
+			mode: "text/javascript",
+			extraKeys: {
+				"Cmd-S": saveFile,
+				"Ctrl-S": saveFile,
+				"Shift-Tab": switchInstances
+			}
 		});
 
 	if (ta.dataset.autoload) {
-		xhr(ta.dataset.file, function (e, res, body) {
+		xhr(fileName, function (e, res, body) {
 			cm.setValue(body);
 		});
 	}
 
 	container.addEventListener("click", function (e) {
 		if (e.shiftKey) {
-			xhr("base/" + ta.dataset.file, function (e, res, body) {
+			xhr("base/" + fileName, function (e, res, body) {
 				cm.setValue(body);
 			});
 		}

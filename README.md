@@ -3,10 +3,6 @@
 Slides/code for JavaScript Latvia meetup on 2014-01-14
 
 ## Todo
-* Keymap to move between source/test
-	* (?) shift+tab?
-* POST to server (+Keymap)
-	* cmd+s / ctrl+s
 * Keymap to next slide (?) shift+tab -> n
 * Server: accept and save POST data
 * Load (and POST) final file for each slide (+Keymap)
