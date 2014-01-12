@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 	<head>
 		<meta charset="utf-8">
@@ -17,9 +17,6 @@
 		<link rel="stylesheet" href="css/reveal.min.css">
 		<link rel="stylesheet" href="css/theme/serif.css" id="theme">
 
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
-
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
 			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
@@ -29,6 +26,7 @@
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
 
+		<link rel="stylesheet" href="codemirror/lib/codemirror.css"/>
 		<link rel="stylesheet" href="clientApp.css"/>
 	</head>
 
@@ -79,36 +77,12 @@
 					</section>
 					<section>
 						<h2>Sample <code>buster.js</code></h2>
-						<pre><code data-trim="true" class="javascript">
-module.exports["browser"] = {
-	rootPath: ".",
-	environment: "browser",
-	sources: [ "build/clientApp.min.js" ],
-	tests: [ "client/test/*.test.js" ],
-	libs: [ "buster.helpers.js" ],
-	extensions: [require("buster-html-doc")]
-};
-
-module.exports["node"] = {
-	rootPath: ".",
-	environment: "node",
-	tests: [ "server/test/*.test.js" ],
-	libs: [ "buster.helpers.js" ]
-};
-</code></pre>
+						<div class="editors"><div class="code-editor code-sample"><textarea data-file="buster.js" data-autoload="true"></textarea></div></div>
 						<aside class="notes">5 mins</aside>
 					</section>
 					<section>
 						<h2>Sample <code>helpers.js</code></h2>
-						<pre><code data-trim="true" class="javascript">
-(function () {
-	// IIFE has global context as "this"
-	var buster = (this.buster || (this.buster = require('buster')));
-	this.assert = buster.assert;
-	this.refute = buster.refute;
-	this.expect = buster.expect;
-}());
-</code></pre>
+						<div class="editors"><div class="code-editor code-sample"><textarea data-file="buster.helpers.js" data-autoload="true"></textarea></div></div>
 					</section>
 					<section>
 						<h2>Run tests</h2>
@@ -128,10 +102,6 @@ module.exports["node"] = {
 							<li><code>npm install grunt-buster<br/>npm install -g grunt-cli<br/>brew install phantomjs</code></li>
 							<li><code>grunt buster</code></li>
 						</ol>
-					</section>
-					<section>
-						<h2>Sample <code>Gruntfile.js</code></h2>
-						<pre>@todo</pre>
 					</section>
 					<section>
 						<h2>Debugging</h2>
@@ -174,7 +144,10 @@ module.exports["node"] = {
 					</section>
 					<section>
 						<h2>should render status div</h2>
-						<pre>@todo</pre>
+						<div class="editors">
+							<div class="code-editor code-test"><textarea rows="20"></textarea></div>
+							<div class="code-editor code-impl"><textarea rows="20"></textarea></div>
+						</div>
 					</section>
 					<section>
 						<h2>should render results div</h2>
@@ -314,6 +287,8 @@ module.exports["node"] = {
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
+		<script src="codemirror/lib/codemirror.js"></script>
+		<script src="codemirror/mode/javascript/javascript.js"></script>
 		<script src="clientApp.min.js"></script>
 
 		<script>
@@ -336,7 +311,6 @@ module.exports["node"] = {
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
 					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]

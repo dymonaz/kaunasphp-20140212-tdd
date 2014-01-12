@@ -31,6 +31,7 @@
     "grunt-contrib-uglify": "0.2.x",
     "grunt-buster": "git://github.com/dymonaz/grunt-buster.git",
     "express": "3.4.x",
-    "ansi-to-html": "0.1.x"
+    "ansi-to-html": "0.1.x",
+    "codemirror": "3.x"
   }
 }

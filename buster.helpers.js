@@ -1,4 +1,5 @@
-(function () { // IIFE runs in "global" context in all environments (node, browser, etc)
+(function () {
+	// "this" is the global context in all envs (node, browser, etc)
 	var buster = (this.buster || (this.buster = require('buster')));
 	this.assert = buster.assert;
 	this.refute = buster.refute;

@@ -1,3 +1,38 @@
 * {
 	tab-size: 2;
 }
+
+textarea {
+	height: 20em;
+	width: 45%;
+}
+
+.editors {
+	height: 480px;
+	position: relative;
+}
+
+.CodeMirror {
+	position: absolute;
+	height: 480px;
+	width: 70%;
+}
+.code-impl .CodeMirror {
+	right: 0;
+	width: 30%;
+	transition: width 0.1s;
+}
+.code-impl .CodeMirror-focused {
+	width: 70%;
+}
+.code-sample .CodeMirror {
+	width: 100%;
+}
+
+.reveal .CodeMirror pre,
+.reveal .CodeMirror-linenumber {
+	box-shadow: none; /* this comes from reveal.js */
+	font-family: consolas, menlo, monaco, monospace;
+	font-size: 20px;
+	line-height: 1.2;
+}
