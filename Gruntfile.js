@@ -54,6 +54,17 @@ module.exports = function (grunt) {
 				],
 				tasks: ["test-node"]
 			}
+		},
+		express: {
+			custom: {
+				options: {
+					port: 9001,
+					bases: [require('path').resolve('./server')],
+					server: require('path').resolve('./server/index'),
+					serverreload: true,
+					livereload: true
+				}
+			}
 		}
 	});
 

@@ -2,7 +2,6 @@
 <html lang="en">
 
 	<head>
-		<base href="node_modules/reveal.js/"/>
 		<meta charset="utf-8">
 
 		<title>TDD with buster.js</title>
@@ -30,11 +29,7 @@
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
 
-		<style>
-			* {
-				tab-size: 4;
-			}
-		</style>
+		<link rel="stylesheet" href="clientApp.css"/>
 	</head>
 
 	<body>
@@ -311,6 +306,7 @@ module.exports["node"] = {
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
+		<script src="clientApp.min.js"></script>
 
 		<script>
 
@@ -338,6 +334,9 @@ module.exports["node"] = {
 				]
 			});
 
+		</script>
+		<script>
+			console.log(require("clientApp"));
 		</script>
 
 	</body>

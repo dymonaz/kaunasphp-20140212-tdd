@@ -29,6 +29,7 @@
     "buster": "0.7.x",
     "buster-html-doc": "1.x",
     "grunt-contrib-uglify": "0.2.x",
-    "grunt-buster": "0.3.x"
+    "grunt-buster": "0.3.x",
+    "express": "3.4.x"
   }
 }
