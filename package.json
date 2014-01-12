@@ -4,6 +4,7 @@
   "description": "Presentation: TDD with buster.js",
   "main": "index.js",
   "scripts": {
+    "start": "node_modules/.bin/nodemon .",
     "test": "grunt"
   },
   "repository": {
@@ -34,6 +35,7 @@
     "ansi-to-html": "0.1.x",
     "codemirror": "3.x",
     "supertest": "0.8.x",
-    "grunt-contrib-clean": "0.5.x"
+    "grunt-contrib-clean": "0.5.x",
+    "nodemon": "1.x"
   }
 }

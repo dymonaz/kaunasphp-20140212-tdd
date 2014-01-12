@@ -82,8 +82,8 @@ module.exports = function (grunt) {
 	require('time-grunt')(grunt);
 	require('load-grunt-tasks')(grunt);
 
-	grunt.registerTask("default", ["clean:build", "test-all"]);
-	grunt.registerTask("test-all", ["test-browser", "test-node"]);
+	grunt.registerTask("default", ["test-all"]);
+	grunt.registerTask("test-all", ["clean:build", "test-browser", "test-node"]);
 	grunt.registerTask("test-browser", ["clean:browser", "browserify", "uglify", "buster-to-file:browser"]);
 	grunt.registerTask("test-node", ["clean:node", "buster-to-file:node"]);
 
