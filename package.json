@@ -4,7 +4,7 @@
   "description": "Presentation: TDD with buster.js",
   "main": "index.js",
   "scripts": {
-    "test": "grunt test-all"
+    "test": "grunt"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,17 @@
   "homepage": "https://github.com/dymonaz/javascript-latvia-20140114-tdd",
   "dependencies": {
     "grunt": "0.4.x",
+    "load-grunt-tasks": "0.2.x",
+    "grunt-contrib-watch": "0.5.x",
+    "time-grunt": "0.2.x",
+    "xhr": "1.x",
+    "domready": "0.2.x",
+    "browserify": "3.x",
+    "grunt-browserify": "1.3.x",
     "reveal.js": "2.6.x",
-    "buster": "0.7.x"
+    "buster": "0.7.x",
+    "buster-html-doc": "1.x",
+    "grunt-contrib-uglify": "0.2.x",
+    "grunt-buster": "0.3.x"
   }
 }
