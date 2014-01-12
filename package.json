@@ -1,0 +1,24 @@
+{
+  "name": "javascript-latvia-20140114-tdd",
+  "version": "0.0.1",
+  "description": "Presentation: TDD with buster.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test-all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dymonaz/javascript-latvia-20140114-tdd.git"
+  },
+  "author": "Dominykas Blyžė <hello@dominykas.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dymonaz/javascript-latvia-20140114-tdd/issues"
+  },
+  "homepage": "https://github.com/dymonaz/javascript-latvia-20140114-tdd",
+  "dependencies": {
+    "grunt": "0.4.x",
+    "reveal.js": "2.6.x",
+    "buster": "0.7.x"
+  }
+}
