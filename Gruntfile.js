@@ -7,6 +7,14 @@ module.exports = function (grunt) {
 	};
 
 	grunt.initConfig({
+		clean: {
+			"build": {
+				src: ["build/**", "!build/.gitignore"],
+				filter: 'isFile'
+			},
+			"browser": ["build/clientApp.js", "build/clientApp.min.js", "build/browser.results.html"],
+			"node": ["build/node.results.html"]
+		},
 		browserify: {
 			dist: {
 				files: {
@@ -74,10 +82,10 @@ module.exports = function (grunt) {
 	require('time-grunt')(grunt);
 	require('load-grunt-tasks')(grunt);
 
-	grunt.registerTask("default", ["test-all"]);
+	grunt.registerTask("default", ["clean:build", "test-all"]);
 	grunt.registerTask("test-all", ["test-browser", "test-node"]);
-	grunt.registerTask("test-browser", ["browserify", "uglify", "buster-to-file:browser"]);
-	grunt.registerTask("test-node", ["buster-to-file:node"]);
+	grunt.registerTask("test-browser", ["clean:browser", "browserify", "uglify", "buster-to-file:browser"]);
+	grunt.registerTask("test-node", ["clean:node", "buster-to-file:node"]);
 
 	grunt.registerTask("buster-to-file", function (which) {
 
@@ -99,9 +107,6 @@ module.exports = function (grunt) {
 			off(text);
 		};
 
-		if (fs.exists(fn)) {
-			fs.unlink(fn);
-		}
 		grunt.event.on('buster:success', onSuccess);
 		grunt.event.on('buster:failure', onFailure);
 		grunt.task.run("buster:" + which);

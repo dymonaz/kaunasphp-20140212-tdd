@@ -3,9 +3,7 @@
 Slides/code for JavaScript Latvia meetup on 2014-01-14
 
 ## Todo
-* Keymap to next slide (?) shift+tab -> n
 * Server: accept and save POST data
-* Load (and POST) final file for each slide (+Keymap)
-* Grunt task to combine resultViewer(.test).js from POSTed files
-* Grunt task to combine results(.test).js for the server
-* pre-load _final_ files for print
+* Combine resultViewer(.test).js from POSTed files
+* Combine results(.test).js for the server
+* Do something about print view

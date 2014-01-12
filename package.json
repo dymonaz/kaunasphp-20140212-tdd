@@ -33,6 +33,7 @@
     "express": "3.4.x",
     "ansi-to-html": "0.1.x",
     "codemirror": "3.x",
-    "supertest": "0.8.x"
+    "supertest": "0.8.x",
+    "grunt-contrib-clean": "0.5.x"
   }
 }

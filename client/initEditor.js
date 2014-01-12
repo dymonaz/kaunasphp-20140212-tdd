@@ -22,6 +22,13 @@ module.exports = function (ta) {
 			});
 	};
 
+	var loadFinal = function () {
+		xhr("final/" + fileName, function (e, res, body) {
+			cm.setValue(body);
+			saveFile();
+		});
+	};
+
 	var switchInstances = function ()
 	{
 		var editors = container.parentNode;
@@ -32,7 +39,6 @@ module.exports = function (ta) {
 				otherTA.codemirror.focus();
 			}
 		}
-		console.log(editors);
 	};
 
 	var cm = ta.codemirror = CodeMirror.fromTextArea(ta,
@@ -45,7 +51,10 @@ module.exports = function (ta) {
 			extraKeys: {
 				"Cmd-S": saveFile,
 				"Ctrl-S": saveFile,
-				"Shift-Tab": switchInstances
+				"Ctrl-L": loadFinal,
+				"Shift-Tab": switchInstances,
+				"Ctrl-]": function () { loadFinal(); Reveal.next(); },
+				"Ctrl-[": function () { loadFinal(); Reveal.prev(); }
 			}
 		});
 
