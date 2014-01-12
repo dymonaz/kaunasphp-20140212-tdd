@@ -1,6 +1,7 @@
 var express = require('express');
 
 var app = express();
+app.use(express.logger({ immediate: true, format: 'dev' }));
 
 app.get("/", function (req, res) {
 	res.sendfile("index.html");

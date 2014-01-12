@@ -145,10 +145,13 @@ module.exports["node"] = {
 
 				<section>
 					<h2>Demo time!</h2>
+					<h3>Let's build a test result viewer</h3>
 					<ul>
-						<li>Also using: browserify, grunt-contrib-watch and grunt-express</li>
-						<li>Code which POSTs from textareas already present</li>
-						<li>Let's build a test result viewer for this slide-deck</li>
+						<li>Worth mentioning:<ul>
+							<li><code>browserify</code> - <code>require()</code> on client side</li>
+							<li><code>grunt-contrib-watch</code> - autorun tasks</li>
+							<li><code>nodemon</code> - autoreload express</li>
+						</ul></li>
 						<li>Disclaimer: do a better job for production!</li>
 					</ul>
 					<aside class="notes">11 mins</aside>
@@ -278,17 +281,22 @@ module.exports["node"] = {
 						<h2>Server side: <code>/results</code></h2>
 						<ul>
 							<li>Should serve results.html</li>
-							<li>Should 404 when results in progress</li>
+							<li>Should 404 when no browser results</li>
+							<li>Should 404 when no node results</li>
 						</ul>
 						<p>@todo: switch reporter to HTML</p>
 						<aside class="notes">35 mins</aside>
 					</section>
 					<section>
 						<h2>Should serve results.html</h2>
+						<pre>@todo: concat node and browser results</pre>
+					</section>
+					<section>
+						<h2>Should 404 when no browser results</h2>
 						<pre>@todo</pre>
 					</section>
 					<section>
-						<h2>Shold 404 when results in progress</h2>
+						<h2>Should 404 when no node results</h2>
 						<pre>@todo</pre>
 					</section>
 				</section>
@@ -336,7 +344,7 @@ module.exports["node"] = {
 
 		</script>
 		<script>
-			console.log(require("clientApp"));
+			require("domready")(require("clientApp"));
 		</script>
 
 	</body>

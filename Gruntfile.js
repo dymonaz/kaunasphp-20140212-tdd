@@ -2,6 +2,7 @@
 module.exports = function (grunt) {
 
 	var aliases = {
+		"domready": "domready",
 		"clientApp": "./client/index.js"
 	};
 
@@ -28,12 +29,14 @@ module.exports = function (grunt) {
 		buster: {
 			"browser": {
 				test: {
-					"config-group": "browser"
+					"config-group": "browser",
+					"reporter": "specification"
 				}
 			},
 			"node": {
 				test: {
-					"config-group": "node"
+					"config-group": "node",
+					"reporter": "specification"
 				}
 			}
 		},
@@ -73,7 +76,36 @@ module.exports = function (grunt) {
 
 	grunt.registerTask("default", ["test-all"]);
 	grunt.registerTask("test-all", ["test-browser", "test-node"]);
-	grunt.registerTask("test-browser", ["browserify", "uglify", "buster:browser"]);
-	grunt.registerTask("test-node", ["buster:node"]);
+	grunt.registerTask("test-browser", ["browserify", "uglify", "buster-to-file:browser"]);
+	grunt.registerTask("test-node", ["buster-to-file:node"]);
+
+	grunt.registerTask("buster-to-file", function (which) {
+
+		var fn = "./build/" + which + ".results.html";
+		var fs = require("fs");
+		var converter = new (require('ansi-to-html'));
+
+		var off = function (text) {
+			fs.writeFileSync(fn, "<pre>" + converter.toHtml(text) + "</pre>");
+			grunt.event.off("buster:success", onSuccess);
+			grunt.event.off("buster:failure", onFailure);
+		};
+
+		var onSuccess = function (text) {
+			off(text);
+		};
+
+		var onFailure = function (text) {
+			off(text);
+		};
+
+		if (fs.exists(fn)) {
+			fs.unlink(fn);
+		}
+		grunt.event.on('buster:success', onSuccess);
+		grunt.event.on('buster:failure', onFailure);
+		grunt.task.run("buster:" + which);
+
+	});
 
 };

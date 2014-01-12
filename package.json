@@ -29,7 +29,8 @@
     "buster": "0.7.x",
     "buster-html-doc": "1.x",
     "grunt-contrib-uglify": "0.2.x",
-    "grunt-buster": "0.3.x",
-    "express": "3.4.x"
+    "grunt-buster": "git://github.com/dymonaz/grunt-buster.git",
+    "express": "3.4.x",
+    "ansi-to-html": "0.1.x"
   }
 }
