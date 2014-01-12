@@ -118,7 +118,7 @@
 					<h3>Let's build a test result viewer</h3>
 					<ul>
 						<li>Worth mentioning:<ul>
-							<li><code>browserify</code> - <code>require()</code> on client side</li>
+							<li><code>browserify</code>: client side <code>require()</code></li>
 							<li><code>grunt-contrib-watch</code> - autorun tasks</li>
 							<li><code>nodemon</code> - autoreload express</li>
 						</ul></li>
@@ -145,29 +145,34 @@
 					<section>
 						<h2>should render status div</h2>
 						<div class="editors">
-							<div class="code-editor code-test"><textarea rows="20"></textarea></div>
-							<div class="code-editor code-impl"><textarea rows="20"></textarea></div>
+							<div class="code-editor code-test"><textarea rows="20" data-file="01-render-status.test.js"></textarea></div>
+							<div class="code-editor code-impl"><textarea rows="20" data-file="01-render-status.js"></textarea></div>
 						</div>
 					</section>
 					<section>
 						<h2>should render results div</h2>
-						<p>@todo: introduce BDD style</p>
+						<div class="editors">
+							<div class="code-editor code-test"><textarea rows="20" data-file="02-render-results.test.js"></textarea></div>
+							<div class="code-editor code-impl"><textarea rows="20" data-file="02-render-results.js"></textarea></div>
+						</div>
 					</section>
 					<section>
 						<h2>div#status onClick should display results</h2>
-						<p>@todo: introduce setUp</p>
+						<div class="editors">
+							<div class="code-editor code-test"><textarea rows="20" data-file="03-click-display.test.js"></textarea></div>
+							<div class="code-editor code-impl"><textarea rows="20" data-file="03-click-display.js"></textarea></div>
+						</div>
 					</section>
 					<section>
 						<h2>div#status onClick should hide results</h2>
-						<p>@todo: introduce HTML doc block</p>
+						<div class="editors">
+							<div class="code-editor code-test"><textarea rows="20" data-file="04-click-hide.test.js"></textarea></div>
+							<div class="code-editor code-impl"><textarea rows="20" data-file="04-click-hide.js"></textarea></div>
+						</div>
 					</section>
 					<section>
 						<h2>F5!</h2>
 						<aside class="notes">19 mins</aside>
-					</section>
-					<section>
-						<h2>button.runTests onClick should loadResults()</h2>
-						<p>@todo: introduce stub</p>
 					</section>
 					<section>
 						<h2>Test doubles</h2>
@@ -177,6 +182,13 @@
 							<li>sinon.stub: replaces a method</li>
 							<li>sinon.mock: replaces methods, built-in expectations</li>
 						</ul>
+					</section>
+					<section>
+						<h2>button.runTests onClick should loadResults()</h2>
+						<div class="editors">
+							<div class="code-editor code-test"><textarea rows="20" data-file="05-click-load.test.js"></textarea></div>
+							<div class="code-editor code-impl"><textarea rows="20" data-file="05-click-load.js"></textarea></div>
+						</div>
 					</section>
 				</section>
 
@@ -192,24 +204,32 @@
 						<aside class="notes">23 mins</aside>
 					</section>
 					<section>
-						<h2>Should make XHR</h2>
-						<pre>@todo: introduce fakeXhr</pre>
+						<h2>Should XHR, then <code>onReceived</code></h2>
+						<div class="editors">
+							<div class="code-editor code-test"><textarea rows="20" data-file="06-make-xhr.test.js"></textarea></div>
+							<div class="code-editor code-impl"><textarea rows="20" data-file="06-make-xhr.js"></textarea></div>
+						</div>
 					</section>
 					<section>
-						<h2>Should call <code>onResultsReceived()</code></h2>
-						<pre>@todo: sync way</pre>
+						<h2>Should <code>onReceived()</code> (fakeServer)</h2>
+						<div class="editors">
+							<div class="code-editor code-test"><textarea rows="20" data-file="07-make-xhr-server.test.js"></textarea></div>
+							<div class="code-editor code-impl"><textarea rows="20" data-file="07-make-xhr-server.js"></textarea></div>
+						</div>
 					</section>
 					<section>
-						<h2>Should call <code>onResultsReceived()</code></h2>
-						<pre>@todo: introduce server</pre>
+						<h2>Should <code>onReceived()</code> (async)</h2>
+						<div class="editors">
+							<div class="code-editor code-test"><textarea rows="20" data-file="08-make-xhr-async.test.js"></textarea></div>
+							<div class="code-editor code-impl"><textarea rows="20" data-file="08-make-xhr-async.js"></textarea></div>
+						</div>
 					</section>
 					<section>
-						<h2>Should call <code>onResultsReceived()</code></h2>
-						<pre>@todo: make async</pre>
-					</section>
-					<section>
-						<h2>Should call <code>onResultsReceived()</code></h2>
-						<pre>@todo: use a promise</pre>
+						<h2>Should <code>onReceived()</code> (promise)</h2>
+						<div class="editors">
+							<div class="code-editor code-test"><textarea rows="20" data-file="09-make-xhr-promise.test.js"></textarea></div>
+							<div class="code-editor code-impl"><textarea rows="20" data-file="09-make-xhr-promise.js"></textarea></div>
+						</div>
 					</section>
 				</section>
 
@@ -234,15 +254,24 @@
 					</section>
 					<section>
 						<h2>Focus rocket</h2>
-						<pre>@todo</pre>
+						<div class="editors">
+							<div class="code-editor code-test"><textarea rows="20" data-file="10-when-ok.test.js"></textarea></div>
+							<div class="code-editor code-impl"><textarea rows="20" data-file="10-when-ok.js"></textarea></div>
+						</div>
 					</section>
 					<section>
 						<h2>Deferred tests</h2>
-						<pre>@todo</pre>
+						<div class="editors">
+							<div class="code-editor code-test"><textarea rows="20" data-file="11-when-failed.test.js"></textarea></div>
+							<div class="code-editor code-impl"><textarea rows="20" data-file="11-when-failed.js"></textarea></div>
+						</div>
 					</section>
 					<section>
 						<h2>Should retry in 100ms</h2>
-						<pre>@todo</pre>
+						<div class="editors">
+							<div class="code-editor code-test"><textarea rows="20" data-file="12-should-retry.test.js"></textarea></div>
+							<div class="code-editor code-impl"><textarea rows="20" data-file="12-should-retry.js"></textarea></div>
+						</div>
 					</section>
 					<section>
 						<h2>F5!</h2>
@@ -257,20 +286,28 @@
 							<li>Should 404 when no browser results</li>
 							<li>Should 404 when no node results</li>
 						</ul>
-						<p>@todo: switch reporter to HTML</p>
 						<aside class="notes">35 mins</aside>
 					</section>
 					<section>
 						<h2>Should serve results.html</h2>
-						<pre>@todo: concat node and browser results</pre>
+						<div class="editors">
+							<div class="code-editor code-test"><textarea rows="20" data-file="13-should-serve.test.js"></textarea></div>
+							<div class="code-editor code-impl"><textarea rows="20" data-file="13-should-serve.js"></textarea></div>
+						</div>
 					</section>
 					<section>
 						<h2>Should 404 when no browser results</h2>
-						<pre>@todo</pre>
+						<div class="editors">
+							<div class="code-editor code-test"><textarea rows="20" data-file="14-when-no-browser.test.js"></textarea></div>
+							<div class="code-editor code-impl"><textarea rows="20" data-file="14-when-no-browser.js"></textarea></div>
+						</div>
 					</section>
 					<section>
 						<h2>Should 404 when no node results</h2>
-						<pre>@todo</pre>
+						<div class="editors">
+							<div class="code-editor code-test"><textarea rows="20" data-file="15-when-no-node.test.js"></textarea></div>
+							<div class="code-editor code-impl"><textarea rows="20" data-file="15-when-no-node.js"></textarea></div>
+						</div>
 					</section>
 				</section>
 

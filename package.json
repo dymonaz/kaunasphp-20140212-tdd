@@ -32,6 +32,7 @@
     "grunt-buster": "git://github.com/dymonaz/grunt-buster.git",
     "express": "3.4.x",
     "ansi-to-html": "0.1.x",
-    "codemirror": "3.x"
+    "codemirror": "3.x",
+    "supertest": "0.8.x"
   }
 }
