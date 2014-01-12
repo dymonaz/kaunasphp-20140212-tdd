@@ -29,6 +29,12 @@
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
+
+		<style>
+			* {
+				tab-size: 4;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -78,12 +84,36 @@
 					</section>
 					<section>
 						<h2>Sample <code>buster.js</code></h2>
-						<pre>@todo</pre>
+						<pre><code data-trim="true" class="javascript">
+module.exports["browser"] = {
+	rootPath: ".",
+	environment: "browser",
+	sources: [ "build/clientApp.min.js" ],
+	tests: [ "client/test/*.test.js" ],
+	libs: [ "buster.helpers.js" ],
+	extensions: [require("buster-html-doc")]
+};
+
+module.exports["node"] = {
+	rootPath: ".",
+	environment: "node",
+	tests: [ "server/test/*.test.js" ],
+	libs: [ "buster.helpers.js" ]
+};
+</code></pre>
 						<aside class="notes">5 mins</aside>
 					</section>
 					<section>
 						<h2>Sample <code>helpers.js</code></h2>
-						<pre>@todo</pre>
+						<pre><code data-trim="true" class="javascript">
+(function () {
+	// IIFE has global context as "this"
+	var buster = (this.buster || (this.buster = require('buster')));
+	this.assert = buster.assert;
+	this.refute = buster.refute;
+	this.expect = buster.expect;
+}());
+</code></pre>
 					</section>
 					<section>
 						<h2>Run tests</h2>

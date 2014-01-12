@@ -1,27 +1,15 @@
-var config = module.exports;
-
-config["browser"] = {
+module.exports["browser"] = {
 	rootPath: ".",
 	environment: "browser",
-	sources: [
-		"build/resultViewer.min.js"
-	],
-	tests:[
-		"client/test/*.test.js"
-	],
-	libs:[
-		"buster.helpers.js"
-	],
-	extensions:[require("buster-html-doc")]
+	sources: [ "build/clientApp.min.js" ],
+	tests: [ "client/test/*.test.js" ],
+	libs: [ "buster.helpers.js" ],
+	extensions: [require("buster-html-doc")]
 };
 
-config["node"] = {
+module.exports["node"] = {
 	rootPath: ".",
 	environment: "node",
-	tests:[
-		"server/test/*.test.js"
-	],
-	libs:[
-		"buster.helpers.js"
-	]
+	tests: [ "server/test/*.test.js" ],
+	libs: [ "buster.helpers.js" ]
 };

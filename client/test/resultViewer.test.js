@@ -1,4 +1,4 @@
-var resultViewer = require("myApp").resultViewer;
+var resultViewer = require("clientApp").resultViewer;
 
 buster.testCase("resultViewer", {
 

@@ -2,14 +2,14 @@
 module.exports = function (grunt) {
 
 	var aliases = {
-		"myApp": "./client/index.js"
+		"clientApp": "./client/index.js"
 	};
 
 	grunt.initConfig({
 		browserify: {
 			dist: {
 				files: {
-					"build/resultViewer.js": ["client/resultViewer.js"]
+					"build/clientApp.js": ["client/clientApp.js"]
 				},
 				options: {
 					alias: Object.keys(aliases).map(function (k) {
@@ -21,7 +21,7 @@ module.exports = function (grunt) {
 		uglify: {
 			dist: {
 				files: {
-					"build/resultViewer.min.js": ["build/resultViewer.js"]
+					"build/clientApp.min.js": ["build/clientApp.js"]
 				}
 			}
 		},
