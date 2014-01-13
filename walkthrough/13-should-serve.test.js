@@ -16,6 +16,15 @@ buster.testCase("13 results", {
 		readStub.withArgs("build/node.results.html")
 			.returns("nr");
 
+		supertest(app)
+		.get("/results")
+		.expect(200)
+		.expect("br<hr/>nr")
+		.end(function (e) {
+			expect(e).toBeNull();
+			expect(readStub).toHaveBeenCalledTwice();
+			done();
+		});
 
 	}
 
