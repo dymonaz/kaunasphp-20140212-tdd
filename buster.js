@@ -3,7 +3,7 @@ module.exports["browser"] = {
 	environment: "browser",
 	sources: [ "build/clientApp.min.js" ],
 	tests: [ "client/test/*.test.js" ],
-	libs: [ "buster.helpers.js" ],
+	testHelpers: [ "buster.helpers.js" ],
 	extensions: [require("buster-html-doc")]
 };
 
@@ -11,5 +11,5 @@ module.exports["node"] = {
 	rootPath: ".",
 	environment: "node",
 	tests: [ "server/test/*.test.js" ],
-	libs: [ "buster.helpers.js" ]
+	testHelpers: [ "buster.helpers.js" ]
 };
