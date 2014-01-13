@@ -1,7 +1,6 @@
-
 var resultViewer = require("clientApp").resultViewer;
 
-buster.testCase("resultViewer", {
+buster.testCase("04 resultViewer", {
 
  "setUp": function () {
 	 /*:DOC elParent = <div>
@@ -9,7 +8,7 @@ buster.testCase("resultViewer", {
 	 		some text
 		</span>
 	 </div> */
-	 resultViewer(this.elParent);
+	 resultViewer.init(this.elParent);
 	 expect(this.elParent.innerHTML).toMatch("some text");
  },
 								 

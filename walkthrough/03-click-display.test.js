@@ -1,10 +1,10 @@
 var resultViewer = require("clientApp").resultViewer;
 
-buster.testCase("resultViewer", {
+buster.testCase("03 resultViewer", {
 
  "setUp": function () {
 	 this.elParent = document.createElement('div');
-	 resultViewer(this.elParent);
+	 resultViewer.init(this.elParent);
  },
 								 
 	"should render status div": function ()

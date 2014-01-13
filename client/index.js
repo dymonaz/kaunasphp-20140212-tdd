@@ -6,7 +6,7 @@ module.exports = function () {
 
 	[].forEach.call(document.querySelectorAll(".code-editor textarea"), initEditor);
 	Reveal.addEventListener( 'slidechanged', refreshEditor);
-	resultViewer(document.body);
+	resultViewer.init(document.body);
 
 };
 module.exports.resultViewer = resultViewer;

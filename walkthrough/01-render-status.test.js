@@ -1,12 +1,12 @@
 var resultViewer = require("clientApp").resultViewer;
 
-buster.testCase("resultViewer", {
+buster.testCase("01 resultViewer", {
 
 	"should render status div": function ()
 	{
 		var parent = document.createElement('div');
 		
-		resultViewer(parent);
+		resultViewer.init(parent);
 		
 		assert.match(parent.innerHTML, 
 									'<div id="testStatus"');
