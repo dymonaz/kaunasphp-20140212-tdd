@@ -25,7 +25,7 @@ module.exports = function (ta) {
 	var loadFinal = function () {
 		xhr("walkthrough/" + fileName, function (e, res, body) {
 			cm.setValue(body);
-			saveFile();
+//			saveFile(); // @todo: enable when done
 		});
 	};
 
@@ -48,6 +48,8 @@ module.exports = function (ta) {
 			matchBrackets: true,
 			readOnly: container.classList.contains("code-sample") ? "nocursor" : false,
 			mode: "text/javascript",
+			tabSize: 2,
+			indentWithTabs: true,
 			extraKeys: {
 				"Cmd-S": saveFile,
 				"Ctrl-S": saveFile,

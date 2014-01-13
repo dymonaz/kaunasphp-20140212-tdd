@@ -17,5 +17,6 @@ app.use("/codemirror", express.static("node_modules/codemirror"));
 app.use(express.static("build/"));
 app.use(express.static("static/"));
 app.use("/base", express.static("base/"));
+app.use("/walkthrough", express.static("walkthrough/"));
 
 module.exports = app;
