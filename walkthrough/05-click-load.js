@@ -10,4 +10,14 @@ module.exports.init = function (elParent) {
 	elStatus.addEventListener('click', function () {
 		elResults.classList.toggle("visible");
 	});
+
+	[].forEach.call(elParent.querySelectorAll('textarea'), function (ta) {
+		ta.addEventListener('change', function () {
+			module.exports.loadResults();
+		});
+	});
+};
+
+module.exports.loadResults = function (done) {
+	
 };

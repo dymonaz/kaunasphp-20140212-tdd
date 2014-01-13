@@ -14,11 +14,13 @@ buster.testCase("05 resultViewer", {
 
 	"onchange of textarea should loadResults()": function () {
 
-		// introduce stubs
+		var loadResultsStub = this.stub(resultViewer, "loadResults");
 
 		var evt = document.createEvent("HTMLEvents");
 		evt.initEvent("change", true, true, null);
 		this.elParent.querySelector('#contents').dispatchEvent(evt);
+
+		expect(loadResultsStub).toHaveBeenCalledOnce();
 
 	}
 
