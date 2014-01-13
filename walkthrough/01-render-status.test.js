@@ -8,8 +8,8 @@ buster.testCase("resultViewer", {
 		
 		resultViewer(parent);
 		
-		expect(parent.innerHTML)
-			.toMatch('<div id="testStatus"');
+		assert.match(parent.innerHTML, 
+									'<div id="testStatus"');
 	}
 
 });
