@@ -23,7 +23,7 @@ module.exports = function (ta) {
 	};
 
 	var loadFinal = function () {
-		xhr("final/" + fileName, function (e, res, body) {
+		xhr("walkthrough/" + fileName, function (e, res, body) {
 			cm.setValue(body);
 			saveFile();
 		});

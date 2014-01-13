@@ -4,7 +4,7 @@
   "description": "Presentation: TDD with buster.js",
   "main": "index.js",
   "scripts": {
-    "start": "node_modules/.bin/nodemon -w server .",
+    "start": "node_modules/.bin/nodemon -w server -i server/test/ .",
     "test": "grunt"
   },
   "repository": {
@@ -36,6 +36,7 @@
     "codemirror": "3.x",
     "supertest": "0.8.x",
     "grunt-contrib-clean": "0.5.x",
-    "nodemon": "1.x"
+    "nodemon": "1.x",
+    "grunt-contrib-concat": "0.3.x"
   }
 }

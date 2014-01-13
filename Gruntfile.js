@@ -64,6 +64,42 @@ module.exports = function (grunt) {
 					"server/**/*.js"
 				],
 				tasks: ["test-node"]
+			},
+			"browser-test-saved": {
+				files: [
+					"build/tmp/0*.test.js",
+					"build/tmp/10*.test.js",
+					"build/tmp/11*.test.js",
+					"build/tmp/12*.test.js"
+				],
+				tasks: ["concat:browser-tests"]
+			},
+			"node-test-saved": {
+				files: [
+					"build/tmp/13*.test.js",
+					"build/tmp/14*.test.js",
+					"build/tmp/15*.test.js"
+				],
+				tasks: ["concat:node-tests"]
+			}
+		},
+		concat: {
+			"browser-tests": {
+				src: [
+					"build/tmp/0*.test.js",
+					"build/tmp/10*.test.js",
+					"build/tmp/11*.test.js",
+					"build/tmp/12*.test.js"
+				],
+				dest: "client/test/resultViewer.test.js"
+			},
+			"node-tests": {
+				src: [
+					"build/tmp/13*.test.js",
+					"build/tmp/14*.test.js",
+					"build/tmp/15*.test.js"
+				],
+				dest: "server/test/results.test.js"
 			}
 		},
 		express: {
