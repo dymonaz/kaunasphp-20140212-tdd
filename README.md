@@ -16,3 +16,4 @@ Slides/code for JavaScript Latvia meetup on 2014-01-14
 * Do something about print view
 * Disable walkthrough saving on server
 * Enable walkthrough re-posting into tmp on client
+* Review code slide headings - ensure lead slide is correct

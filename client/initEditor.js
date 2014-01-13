@@ -1,4 +1,19 @@
-var xhr = require('xhr');
+var reqwest = require('reqwest');
+var xhr = function (obj, cb) {
+	if (typeof(obj) == "string") {
+		obj = {
+			url: obj
+		};
+	}
+	obj.type = "html";
+	obj.success = function (res) {
+		cb(null, res);
+	};
+	obj.error = function () {
+		cb(new Error("faaaail"));
+	};
+	reqwest(obj);
+};
 
 module.exports = function (ta) {
 	if (!ta.value) ta.value = '\n';
@@ -10,20 +25,20 @@ module.exports = function (ta) {
 		cm.save();
 		xhr({
 				method: "POST",
-				uri: "/save",
-				json: {
+				url: "/save",
+				data: {
 					text: ta.value,
 					file: fileName
 				}
 			},
-			function (err, res, body) {
+			function (err, body) {
 				if (err) console.error(err);
 				console.log("Received:", body);
 			});
 	};
 
 	var loadFinal = function () {
-		xhr("walkthrough/" + fileName, function (e, res, body) {
+		xhr("walkthrough/" + fileName, function (e, body) {
 			cm.setValue(body);
 //			saveFile(); // @todo: enable when done
 		});
@@ -61,14 +76,14 @@ module.exports = function (ta) {
 		});
 
 	if (ta.dataset.autoload) {
-		xhr(fileName, function (e, res, body) {
+		xhr(fileName, function (e, body) {
 			cm.setValue(body);
 		});
 	}
 
 	container.addEventListener("click", function (e) {
 		if (e.shiftKey) {
-			xhr("base/" + fileName, function (e, res, body) {
+			xhr("base/" + fileName, function (e, body) {
 				cm.setValue(body);
 			});
 		}
