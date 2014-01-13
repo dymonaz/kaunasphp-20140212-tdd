@@ -4,9 +4,9 @@ buster.testCase("resultViewer", {
 
 	"setUp": function () {
 		/*:DOC elParent = <div>
-		    <span>
+		    <textarea id="contents">
 		        some text
-		    </span>
+		    </textarea>
 		 </div>
 		 */
 		resultViewer.init(this.elParent);
@@ -43,8 +43,14 @@ buster.testCase("resultViewer", {
 		expect(resultsDiv.className).not.toMatch("visible");
 	},
 
-	"// ??? should loadResults()": function () {
+	"onchange of textarea should loadResults()": function () {
+		var loadResultsStub = this.stub(resultViewer, "loadResults");
 
+		var evt = document.createEvent("HTMLEvents");
+		evt.initEvent("change", true, true, null);
+		this.elParent.querySelector('#contents').dispatchEvent(evt);
+
+		expect(loadResultsStub).toHaveBeenCalledOnce();
 	},
 
 	"loadResults()": {

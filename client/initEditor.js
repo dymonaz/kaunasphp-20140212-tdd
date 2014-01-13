@@ -23,6 +23,10 @@ module.exports = function (ta) {
 
 	var saveFile = function () {
 		cm.save();
+		var evt = document.createEvent("HTMLEvents");
+		evt.initEvent("change", true, true, null);
+		ta.dispatchEvent(evt);
+
 		xhr({
 				method: "POST",
 				url: "/save",
@@ -40,7 +44,6 @@ module.exports = function (ta) {
 	var loadFinal = function () {
 		xhr("walkthrough/" + fileName, function (e, body) {
 			cm.setValue(body);
-//			saveFile(); // @todo: enable when done
 		});
 	};
 
