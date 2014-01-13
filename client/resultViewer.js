@@ -38,4 +38,15 @@ module.exports.loadResults = function (done) {
 
 module.exports.onReceived = function (e, res) {
 
+	if (e) {
+		elStatus.dataset.status = "pending";
+		elResults.innerHTML = "<p>Retrying...</p>";
+		setTimeout(function () {
+			module.exports.loadResults();
+		}, 100);
+	} else {
+		elStatus.dataset.status = res.indexOf('✖') >= 0 ? "fail" : "ok";
+		elResults.innerHTML = res;
+	}
+
 };
