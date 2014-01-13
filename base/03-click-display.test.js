@@ -1,6 +1,6 @@
 var resultViewer = require("clientApp").resultViewer;
 
-buster.testCase("resultViewer", {
+buster.testCase("03 resultViewer", {
 
 	// introduce setUp
 
@@ -8,7 +8,7 @@ buster.testCase("resultViewer", {
 	{
 		var parent = document.createElement('div');
 
-		resultViewer(parent);
+		resultViewer.init(parent);
 
 		assert.match(parent.innerHTML,
 			'<div id="testStatus"');
@@ -17,9 +17,17 @@ buster.testCase("resultViewer", {
 	"should render results div": function ()
 	{
 		var el = document.createElement('div');
-		resultViewer(el);
+		resultViewer.init(el);
 		expect(el.innerHTML)
 			.toMatch('<div id="testResults"');
+	},
+
+	"when status is clicked, display results": function ()
+	{
+		var statusDiv = this.elParent.querySelector('#testStatus');
+		var resultsDiv = this.elParent.querySelector('#testResults');
+
+		// var evt = document.createEvent("MouseEvent");
 	}
 
 });

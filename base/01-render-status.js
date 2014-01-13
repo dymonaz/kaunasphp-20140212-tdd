@@ -1,1 +1,4 @@
-// module.exports.init = function (el) { el.insertAdjancent(status) }
+module.exports.init = function (elParent)
+{
+
+};
