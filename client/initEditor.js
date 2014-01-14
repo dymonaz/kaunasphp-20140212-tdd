@@ -23,10 +23,6 @@ module.exports = function (ta) {
 
 	var saveFile = function () {
 		cm.save();
-		var evt = document.createEvent("HTMLEvents");
-		evt.initEvent("change", true, true, null);
-		ta.dispatchEvent(evt);
-
 		xhr({
 				method: "POST",
 				url: "/save",
@@ -39,6 +35,11 @@ module.exports = function (ta) {
 				if (err) console.error(err);
 				console.log("Received:", body);
 			});
+		setTimeout(function () {
+			var evt = document.createEvent("HTMLEvents");
+			evt.initEvent("change", true, true, null);
+			ta.dispatchEvent(evt);
+		}, 1);
 	};
 
 	var loadFinal = function () {
