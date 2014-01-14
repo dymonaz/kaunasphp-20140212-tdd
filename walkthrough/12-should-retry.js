@@ -22,9 +22,34 @@ module.exports.init = function (elParent) {
 
 var reqwest = require("reqwest");
 module.exports.loadResults = function (done) {
+	elStatus.dataset.status = "pending";
+	elResults.innerHTML = "<p>Loading...</p>";
 
+	return reqwest({
+		url: "/results",
+		type: "html",
+		success: function (res)
+		{
+			module.exports.onReceived(null, res);
+			if (done) done();
+		},
+		error: function ()
+		{
+			module.exports.onReceived(new Error());
+			if (done) done();
+		}
+	});
 };
 
 module.exports.onReceived = function (e, res) {
-
+	if (e) {
+		elStatus.dataset.status = "pending";
+		elResults.innerHTML = "<p>Retrying...</p>";
+		setTimeout(function () {
+			module.exports.loadResults();
+		}, 100);
+	} else {
+		elStatus.dataset.status = res.indexOf('✖') >= 0 ? "fail" : "ok";
+		elResults.innerHTML = res;
+	}
 };
