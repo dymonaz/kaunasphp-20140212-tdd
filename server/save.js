@@ -16,6 +16,5 @@ module.exports = function (req, res) {
 		fs.writeFileSync(outF, text);
 
 	}
-	fs.writeFileSync("walkthrough/" + fileName, text); // @todo: comment out when finished
 	res.send("OK");
 };
