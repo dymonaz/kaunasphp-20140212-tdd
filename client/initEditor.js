@@ -18,6 +18,12 @@ var xhr = function (obj, cb) {
 module.exports = function (ta) {
 	if (!ta.value) ta.value = '\n';
 
+	if (location.href.indexOf("print-pdf") >= 0) {
+		ta.rows = 1;
+		ta.value = "https://github.com/dymonaz/javascript-latvia-20140114-tdd/blob/master/"+(ta.dataset.autoload ? "" : "walkthrough/") + ta.dataset.file;
+		return;
+	}
+
 	var container = ta.parentNode;
 	var fileName = ta.dataset.file;
 
