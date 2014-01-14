@@ -42,6 +42,6 @@ module.exports.loadResults = function (done) {
 };
 
 module.exports.onReceived = function (e, res) {
-	elStatus.dataset.status = "ok";
+	elStatus.dataset.status = res.indexOf('✖') >= 0 ? "fail" : "ok";
 	elResults.innerHTML = res;
 };
