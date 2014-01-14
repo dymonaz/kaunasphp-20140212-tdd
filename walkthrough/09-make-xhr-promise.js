@@ -24,7 +24,7 @@ var reqwest = require("reqwest");
 module.exports.loadResults = function (done) {
 	elStatus.dataset.status = "pending";
 	elResults.innerHTML = "<p>Loading...</p>";
-	reqwest({
+	return reqwest({
 		url: "/results",
 		type: "html",
 		success: function (body) {

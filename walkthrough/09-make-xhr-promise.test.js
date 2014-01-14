@@ -13,20 +13,21 @@ buster.testCase("09 resultViewer", {
 	},
 
 	"loadResults()": {
-		"should XHR, then onReceived (promise)": function (done) {
+		"should XHR, then onReceived (promise)": function () {
 
 			var onReceivedStub = this.stub(resultViewer, "onReceived");
 			var server = this.useFakeServer();
 			server.respondWith("GET", "/results", [200, {"content-type": "text/html"}, "RESULTS"]);
 
-			resultViewer.loadResults(function () {
-				expect(onReceivedStub).toHaveBeenCalledOnceWith(null, "RESULTS");
-				done();
-			});
+			var promise = resultViewer.loadResults();
 
 			setTimeout(function () {
 				server.respond();
 			}, 100);
+
+			return promise.then(function () {
+				expect(onReceivedStub).toHaveBeenCalledOnceWith(null, "RESULTS");
+			});
 
 		}
 	}
