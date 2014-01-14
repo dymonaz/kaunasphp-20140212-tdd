@@ -13,4 +13,3 @@ Slides/code for JavaScript Latvia meetup on 2014-01-14
 
 ## Todo
 * Do something about print view
-* Review code slide headings - ensure lead slide is correct

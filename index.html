@@ -120,7 +120,7 @@
 						<li>Worth mentioning:<ul>
 							<li><code>browserify</code>: client side <code>require()</code></li>
 							<li><code>grunt-contrib-watch</code> - autorun tasks</li>
-							<li><code>nodemon</code> - autoreload express</li>
+							<li><code>nodemon</code> - autorestart server</li>
 						</ul></li>
 						<li>Disclaimer: do a better job for production!</li>
 					</ul>
@@ -131,15 +131,13 @@
 					<section>
 						<h2><code>init(el)</code></h2>
 						<ul>
-							<li>Should render status <code>div</code></li>
-							<li>Should render results <code>div</code></li>
-							<li><code>div#status onClick</code><ul>
-								<li>should display results</li>
-								<li>should hide results</li>
+							<li>should render status div</li>
+							<li>should render results div</li>
+							<li>when status is clicked:<ul>
+								<li>display results</li>
+								<li>hide results</li>
 							</ul></li>
-							<li><code>button.runTests onClick</code><ul>
-								<li>should <code>loadResults()</code></li>
-							</ul></li>
+							<li>onchange of textarea should loadResults()</li>
 						</ul>
 					</section>
 					<section>
@@ -157,14 +155,14 @@
 						</div>
 					</section>
 					<section>
-						<h2>div#status onClick should display results</h2>
+						<h2>when status is clicked, display results</h2>
 						<div class="editors">
 							<div class="code-editor code-test"><textarea rows="20" data-file="03-click-display.test.js"></textarea></div>
 							<div class="code-editor code-impl"><textarea rows="20" data-file="03-click-display.js"></textarea></div>
 						</div>
 					</section>
 					<section>
-						<h2>div#status onClick should hide results</h2>
+						<h2>when status is clicked, hide resultss</h2>
 						<div class="editors">
 							<div class="code-editor code-test"><textarea rows="20" data-file="04-click-hide.test.js"></textarea></div>
 							<div class="code-editor code-impl"><textarea rows="20" data-file="04-click-hide.js"></textarea></div>
@@ -184,7 +182,7 @@
 						</ul>
 					</section>
 					<section>
-						<h2>button.runTests onClick should loadResults()</h2>
+						<h2>onchange of textarea should loadResults()</h2>
 						<div class="editors">
 							<div class="code-editor code-test"><textarea rows="20" data-file="05-click-load.test.js"></textarea></div>
 							<div class="code-editor code-impl"><textarea rows="20" data-file="05-click-load.js"></textarea></div>
@@ -196,36 +194,35 @@
 					<section>
 						<h2><code>loadResults()</code></h2>
 						<ul>
-							<li>Should change status to <code>.loading</code></li>
-							<li>Should set results to "Waiting"</li>
-							<li>Should make XHR</li>
-							<li>Should call <code>onResultsReceived()</code></li>
+							<li>should change status to loading</li>
+							<li>should XHR</li>
+							<li>should onReceived() after XHR</li>
 						</ul>
 						<aside class="notes">23 mins</aside>
 					</section>
 					<section>
-						<h2>Should XHR, then <code>onReceived</code></h2>
+						<h2>should XHR, then onReceived</h2>
 						<div class="editors">
 							<div class="code-editor code-test"><textarea rows="20" data-file="06-make-xhr.test.js"></textarea></div>
 							<div class="code-editor code-impl"><textarea rows="20" data-file="06-make-xhr.js"></textarea></div>
 						</div>
 					</section>
 					<section>
-						<h2>Should <code>onReceived()</code> (fakeServer)</h2>
+						<h2>should XHR, then onReceived (error)</h2>
 						<div class="editors">
 							<div class="code-editor code-test"><textarea rows="20" data-file="07-make-xhr-server.test.js"></textarea></div>
 							<div class="code-editor code-impl"><textarea rows="20" data-file="07-make-xhr-server.js"></textarea></div>
 						</div>
 					</section>
 					<section>
-						<h2>Should <code>onReceived()</code> (async)</h2>
+						<h2>should XHR, then onReceived (async)</h2>
 						<div class="editors">
 							<div class="code-editor code-test"><textarea rows="20" data-file="08-make-xhr-async.test.js"></textarea></div>
 							<div class="code-editor code-impl"><textarea rows="20" data-file="08-make-xhr-async.js"></textarea></div>
 						</div>
 					</section>
 					<section>
-						<h2>Should <code>onReceived()</code> (promise)</h2>
+						<h2>should XHR, then onReceived (promise)</h2>
 						<div class="editors">
 							<div class="code-editor code-test"><textarea rows="20" data-file="09-make-xhr-promise.test.js"></textarea></div>
 							<div class="code-editor code-impl"><textarea rows="20" data-file="09-make-xhr-promise.js"></textarea></div>
@@ -237,18 +234,9 @@
 					<section>
 						<h2><code>onResultsReceived()</code></h2>
 						<ul>
-							<li>when OK:<ul>
-								<li>should change status to <code>.success</code></li>
-								<li>should add HTML to results</li>
-							</ul></li>
-							<li>when failed:<ul>
-								<li>should change status to <code>.fail</code></li>
-							</ul></li>
-							<li>when unknown:<ul>
-								<li>should change status to <code>.loading</code></li>
-								<li>should set results to "retrying"</li>
-								<li>should retry in 100ms</li>
-							</ul></li>
+							<li>when OK, should change status and add results</li>
+							<li>when failed, should change status and add results</li>
+							<li>when http error, should retry</li>
 						</ul>
 						<aside class="notes">30 mins</aside>
 					</section>
@@ -282,28 +270,28 @@
 					<section>
 						<h2>Server side: <code>/results</code></h2>
 						<ul>
-							<li>Should serve combined results.html</li>
-							<li>Should 404 when no browser results</li>
-							<li>Should 404 when no node results</li>
+							<li>should serve combined results.html</li>
+							<li>should 404 when no browser results</li>
+							<li>should 404 when no node results</li>
 						</ul>
 						<aside class="notes">35 mins</aside>
 					</section>
 					<section>
-						<h2>Should serve combined results.html</h2>
+						<h2>should serve combined results.html</h2>
 						<div class="editors">
 							<div class="code-editor code-test"><textarea rows="20" data-file="13-should-serve.test.js"></textarea></div>
 							<div class="code-editor code-impl"><textarea rows="20" data-file="13-should-serve.js"></textarea></div>
 						</div>
 					</section>
 					<section>
-						<h2>Should 404 when no browser results</h2>
+						<h2>should 404 when no browser results</h2>
 						<div class="editors">
 							<div class="code-editor code-test"><textarea rows="20" data-file="14-when-no-browser.test.js"></textarea></div>
 							<div class="code-editor code-impl"><textarea rows="20" data-file="14-when-no-browser.js"></textarea></div>
 						</div>
 					</section>
 					<section>
-						<h2>Should 404 when no node results</h2>
+						<h2>should 404 when no node results</h2>
 						<div class="editors">
 							<div class="code-editor code-test"><textarea rows="20" data-file="15-when-no-node.test.js"></textarea></div>
 							<div class="code-editor code-impl"><textarea rows="20" data-file="15-when-no-node.js"></textarea></div>
