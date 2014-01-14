@@ -29,6 +29,9 @@ module.exports.loadResults = function (done) {
 		type: "html",
 		success: function (body) {
 			module.exports.onReceived(null, body);
+		},
+		error: function () {
+			module.exports.onReceived(new Error("404!"));
 		}
 	})
 };

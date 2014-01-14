@@ -17,13 +17,13 @@ buster.testCase("07 resultViewer", {
 
 			var onReceivedStub = this.stub(resultViewer, "onReceived");
 			var server = this.useFakeServer();
-			server.respondWith("GET", "/results", [200, {"content-type": "text/html"}, "RESULTS"]);
+			server.respondWith("GET", "/results", [404, {"content-type": "text/html"}, ""]);
 
 			resultViewer.loadResults();
 			expect(server.requests.length).toEqual(1);
 
 			server.respond();
-			expect(onReceivedStub).toHaveBeenCalledOnceWith(null, "RESULTS");
+			expect(onReceivedStub).toHaveBeenCalledOnce();
 
 		}
 	}
