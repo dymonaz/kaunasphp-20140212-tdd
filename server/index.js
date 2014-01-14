@@ -9,7 +9,11 @@ app.get("/buster.js", function (req, res) { res.sendfile("buster.js"); });
 app.get("/buster.helpers.js", function (req, res) { res.sendfile("buster.helpers.js"); });
 
 app.post("/save", express.bodyParser(), require("./save"));
-app.get("/results", require("./results"));
+
+var showResults = require("./results");
+if (typeof(showResults) == "function") {
+	app.get("/results", showResults);
+}
 
 app.use(express.static("node_modules/reveal.js/"));
 app.use("/codemirror", express.static("node_modules/codemirror"));
