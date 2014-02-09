@@ -78,7 +78,6 @@
 					<section>
 						<h2>Sample <code>buster.js</code></h2>
 						<div class="editors"><div class="code-editor code-sample"><textarea data-file="buster.js" data-autoload="true"></textarea></div></div>
-						<aside class="notes">5 mins</aside>
 					</section>
 					<section>
 						<h2>Sample <code>helpers.js</code></h2>
@@ -86,22 +85,11 @@
 					</section>
 					<section>
 						<h2>Run tests</h2>
-						<ol>
-							<li><code>./node_modules/.bin/buster-server</code></li>
-							<li>Point browser to localhost:1111</li>
-							<li><code>./node_modules/.bin/buster-test</code></li>
-						</ol>
-						<p><small>Or install globally, but that's a bad idea</small></p>
-						<hr/>
-						<ol>
+						<ul>
+							<li>Via command line</li>
 							<li><code>require('buster-node')</code></li>
-							<li><code>node myTests.js</code></li>
-						</ol>
-						<hr/>
-						<ol start="0">
-							<li><code>npm install grunt-buster<br/>npm install -g grunt-cli<br/>brew install phantomjs</code></li>
-							<li><code>grunt buster</code></li>
-						</ol>
+							<li>Via Grunt</li>
+						</ul>
 					</section>
 					<section>
 						<h2>Debugging</h2>
@@ -124,7 +112,6 @@
 						</ul></li>
 						<li>Disclaimer: do a better job for production!</li>
 					</ul>
-					<aside class="notes">11 mins</aside>
 				</section>
 
 				<section>
@@ -137,7 +124,7 @@
 								<li>display results</li>
 								<li>hide results</li>
 							</ul></li>
-							<li>onchange of textarea should loadResults()</li>
+							<li>onchange of textarea should <a href="/results">loadResults()</a></li>
 						</ul>
 					</section>
 					<section>
@@ -162,7 +149,7 @@
 						</div>
 					</section>
 					<section>
-						<h2>when status is clicked, hide resultss</h2>
+						<h2>when status is clicked, hide results</h2>
 						<div class="editors">
 							<div class="code-editor code-test"><textarea rows="20" data-file="04-click-hide.test.js"></textarea></div>
 							<div class="code-editor code-impl"><textarea rows="20" data-file="04-click-hide.js"></textarea></div>
@@ -170,23 +157,6 @@
 					</section>
 					<section>
 						<h2>F5!</h2>
-						<aside class="notes">19 mins</aside>
-					</section>
-					<section>
-						<h2>Test doubles</h2>
-						<p>Use for: isolation, forcing a code path, avoiding external calls, forcing errors</p>
-						<ul>
-							<li>sinon.spy: wraps around a method and records calls</li>
-							<li>sinon.stub: replaces a method</li>
-							<li>sinon.mock: replaces methods, built-in expectations</li>
-						</ul>
-					</section>
-					<section>
-						<h2>onchange of textarea should loadResults()</h2>
-						<div class="editors">
-							<div class="code-editor code-test"><textarea rows="20" data-file="05-click-load.test.js"></textarea></div>
-							<div class="code-editor code-impl"><textarea rows="20" data-file="05-click-load.js"></textarea></div>
-						</div>
 					</section>
 				</section>
 
@@ -198,7 +168,15 @@
 							<li>should XHR</li>
 							<li>should onReceived() after XHR</li>
 						</ul>
-						<aside class="notes">23 mins</aside>
+					</section>
+					<section>
+						<h2>Test doubles</h2>
+						<p>Use for: isolation, forcing a code path, avoiding external calls, forcing errors</p>
+						<ul>
+							<li>sinon.spy: wraps around a method and records calls</li>
+							<li>sinon.stub: replaces a method</li>
+							<li>sinon.mock: replaces methods, built-in expectations</li>
+						</ul>
 					</section>
 					<section>
 						<h2>should XHR, then onReceived</h2>
@@ -221,13 +199,6 @@
 							<div class="code-editor code-impl"><textarea rows="20" data-file="08-make-xhr-async.js"></textarea></div>
 						</div>
 					</section>
-					<section>
-						<h2>should XHR, then onReceived (promise)</h2>
-						<div class="editors">
-							<div class="code-editor code-test"><textarea rows="20" data-file="09-make-xhr-promise.test.js"></textarea></div>
-							<div class="code-editor code-impl"><textarea rows="20" data-file="09-make-xhr-promise.js"></textarea></div>
-						</div>
-					</section>
 				</section>
 
 				<section>
@@ -238,7 +209,6 @@
 							<li>when failed, should change status and add results</li>
 							<li>when http error, should retry</li>
 						</ul>
-						<aside class="notes">30 mins</aside>
 					</section>
 					<section>
 						<h2>Deferred tests</h2>
@@ -267,41 +237,7 @@
 				</section>
 
 				<section>
-					<section>
-						<h2>Server side: <code>/results</code></h2>
-						<ul>
-							<li>should serve combined results.html</li>
-							<li>should 404 when no browser results</li>
-							<li>should 404 when no node results</li>
-						</ul>
-						<aside class="notes">35 mins</aside>
-					</section>
-					<section>
-						<h2>should serve combined results.html</h2>
-						<div class="editors">
-							<div class="code-editor code-test"><textarea rows="20" data-file="13-should-serve.test.js"></textarea></div>
-							<div class="code-editor code-impl"><textarea rows="20" data-file="13-should-serve.js"></textarea></div>
-						</div>
-					</section>
-					<section>
-						<h2>should 404 when no browser results</h2>
-						<div class="editors">
-							<div class="code-editor code-test"><textarea rows="20" data-file="14-when-no-browser.test.js"></textarea></div>
-							<div class="code-editor code-impl"><textarea rows="20" data-file="14-when-no-browser.js"></textarea></div>
-						</div>
-					</section>
-					<section>
-						<h2>should 404 when no node results</h2>
-						<div class="editors">
-							<div class="code-editor code-test"><textarea rows="20" data-file="15-when-no-node.test.js"></textarea></div>
-							<div class="code-editor code-impl"><textarea rows="20" data-file="15-when-no-node.js"></textarea></div>
-						</div>
-					</section>
-				</section>
-
-				<section>
-					<p>Slides: <a href="http://dominykas.net/20">http://dominykas.net/20</a></p>
-					<p>Code: <a href="http://dominykas.net/21">http://dominykas.net/21</a></p>
+					<p>Code: <a href="http://dominykas.net/22">http://dominykas.net/22</a></p>
 					<p><small><a href="https://twitter.com/dymonaz">@dymonaz</a></small></p>
 					<p>;</p>
 				</section>
